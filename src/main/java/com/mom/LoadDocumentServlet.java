@@ -21,7 +21,7 @@ public class LoadDocumentServlet extends HttpServlet {
 			resp.setHeader("Content-disposition",
 	                "attachment; filename=" + fileName);
 			
-			FileInputStream file = new FileInputStream("WEB-INF/documents/"+fileName);
+			FileInputStream file = new FileInputStream(getServletContext().getRealPath("/WEB-INF/documents/"+fileName));
 			bis = new BufferedInputStream(file);
 			bos = new BufferedOutputStream(resp.getOutputStream());
 			

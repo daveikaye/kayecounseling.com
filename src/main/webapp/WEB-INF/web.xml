@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<welcome-file-list>
+		<welcome-file>home.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>LoadDocument</servlet-name>
+		<servlet-class>com.mom.LoadDocumentServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Contact</servlet-name>
+		<servlet-class>com.mom.ContactServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ProductsJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/products.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ServicesJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/services.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>AssessmentsJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/assessments.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ContactJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/contact.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ThankyouJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/thankyou.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>InvalidCaptchasJSP</servlet-name>
+		<jsp-file>/WEB-INF/jsp/invalid_captchas.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LoadDocument</servlet-name>
+		<url-pattern>/loadDocument</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Contact</servlet-name>
+		<url-pattern>/submitContact</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ProductsJSP</servlet-name>
+		<url-pattern>/products</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServicesJSP</servlet-name>
+		<url-pattern>/services</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AssessmentsJSP</servlet-name>
+		<url-pattern>/assessments</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ContactJSP</servlet-name>
+		<url-pattern>/contact</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ThankyouJSP</servlet-name>
+		<url-pattern>/thankyou</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InvalidCaptchasJSP</servlet-name>
+		<url-pattern>/invalidCaptchas</url-pattern>
+	</servlet-mapping>
+	
+	<jsp-config>
+		<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/fmt</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/fmt.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/fmt-1_0-rt</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/fmt-1_0-rt.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/c</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/c.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/c-1_0-rt</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/c-1_0-rt.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/sql</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/sql.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/sql-1_0-rt</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/sql-1_0-rt.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/x</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/x.tld</taglib-location>
+	  	</taglib>
+	
+	  	<taglib>
+	    	<taglib-uri>/WEB-INF/taglib/x-1_0-rt</taglib-uri>
+	    	<taglib-location>/WEB-INF/taglib/x-1_0-rt.tld</taglib-location>
+	  	</taglib>
+  	</jsp-config>
+</web-app>

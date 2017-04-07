@@ -1,0 +1,90 @@
+#menubar_container {
+	background-color:#330033;
+	display:block;
+	margin:0;
+	padding:0;
+	position:relative;
+	z-index:100;
+	height:35px;
+}
+
+#menubar {
+	width:1000px;
+}
+
+.menu_link {
+	color:#FFFFFF;
+	display:block;
+	font-weight:bold;
+	text-decoration: none;
+	float:left;
+	padding: 7px 20px 6px 8px;
+	font-family:"Arial"
+}
+
+.menu_link_grey {
+	color: grey;
+	display:block;
+	font-weight:bold;
+	text-decoration: none;
+	float:left;
+	padding: 7px 20px 6px 8px;
+	font-family:"Arial"
+}
+
+.logo_link {
+	color:#FFFFFF;
+	display:block;
+	font-weight:bold;
+	text-decoration: none;
+	float:left;
+	padding: 2px 140px 2px 8px;
+	font-family:"Arial";
+	font-size: 1.5em;
+}
+
+img.profile_image {
+	display: block;
+	width: 15em;
+}
+
+#profile_div {
+	float: left
+}
+
+#content_div, #error_div, #success_div {
+	float: left;
+	width: 635px;
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family:"Arial";
+	font-style:italic; 
+}
+
+#content_div {
+	color: #330033;
+}
+
+#error_div {
+	color: red;
+}
+
+#success_div {
+	color: green;
+}
+
+.icon {
+	width: 2em;
+}
+
+.content_background_left {background: url(../images/content_ll.gif) 0 100% no-repeat #FFFFCC}
+.content_background_right {background: url(../images/content_lr.gif) 100% 100% no-repeat; padding: 35px;}
+.profile_background_left {background: url(../images/profile_ll.gif) 0 100% no-repeat #FFCC99}
+.profile_background_right {background: url(../images/profile_lr.gif) 100% 100% no-repeat; padding: 10px 10px 20px 10px;}
+
+#shareSave_div {
+	clear:both;
+	padding-left: 260px;
+	padding-top: 10px;
+}
+

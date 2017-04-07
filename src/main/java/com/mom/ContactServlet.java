@@ -1,16 +1,17 @@
 package com.mom;
 import java.io.IOException;
-import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sendgrid.Content;
+import com.sendgrid.Email;
+import com.sendgrid.Mail;
+import com.sendgrid.Method;
+import com.sendgrid.Request;
+import com.sendgrid.Response;
+import com.sendgrid.SendGrid;
 
 import net.tanesha.recaptcha.ReCaptchaImpl;
 import net.tanesha.recaptcha.ReCaptchaResponse;
@@ -23,27 +24,57 @@ public class ContactServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		if (isValidReCaptcha(req)) {
-			Properties props = new Properties();
-	        Session session = Session.getDefaultInstance(props, null);
-	        
-	        Message msg = new MimeMessage(session);
-	        StringBuilder msgBody = new StringBuilder();
-	        msgBody.append("Full name: "+req.getParameter("fullName")+"\n");
-	        
-	        msgBody.append("Contact at: "+getContactInformation(req.getParameter("contactType"), 
-	        		                                            req.getParameter("emailAddress"), 
-	        		                                            req.getParameter("phoneNumber"))+"\n");
-	        		
-	        msgBody.append("Message:\n"+req.getParameter("questionsOrComments"));
-	        try {
-				msg.setFrom(new InternetAddress("davekaye@gmail.com"));
-				msg.addRecipient(Message.RecipientType.TO, new InternetAddress("daveikaye@yahoo.com"));
-				msg.setSubject("Contact message from "+req.getParameter("fullName"));
-				msg.setText(msgBody.toString());
-				Transport.send(msg);
-			} catch (MessagingException e) {
-				e.printStackTrace();
-			}
+		    String subject = "Contact message from "+req.getParameter("fullName");
+		    Email to = new Email("daveikaye@yahoo.com");
+		    Email from = new Email("davekaye@gmail.com");
+		    
+	        Content content = new Content("text/plain", 
+	        		"Full name: "+req.getParameter("fullName")+"\n"
+	        		+"Contact at: "+getContactInformation(req.getParameter("contactType"), 
+                            req.getParameter("emailAddress"), 
+                            req.getParameter("phoneNumber"))+"\n"
+	        		+"Message:\n"+req.getParameter("questionsOrComments"));
+		    
+		    Mail mail = new Mail(from, subject, to, content);
+
+		    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+		    Request request = new Request();
+		    try {
+		      request.method = Method.POST;
+		      request.endpoint = "mail/send";
+		      request.body = mail.build();
+		      Response response = sg.api(request);
+		      System.out.println(response.statusCode);
+		      System.out.println(response.body);
+		      System.out.println(response.headers);
+		    } catch (IOException ex) {
+		      throw ex;
+		    }
+			
+//			
+//			
+//			
+//			Properties props = new Properties();
+//	        Session session = Session.getDefaultInstance(props, null);
+//	        
+//	        Message msg = new MimeMessage(session);
+//	        StringBuilder msgBody = new StringBuilder();
+//	        msgBody.append("Full name: "+req.getParameter("fullName")+"\n");
+//	        
+//	        msgBody.append("Contact at: "+getContactInformation(req.getParameter("contactType"), 
+//	        		                                            req.getParameter("emailAddress"), 
+//	        		                                            req.getParameter("phoneNumber"))+"\n");
+//	        		
+//	        msgBody.append("Message:\n"+req.getParameter("questionsOrComments"));
+//	        try {
+//				msg.setFrom(new InternetAddress("davekaye@gmail.com"));
+//				msg.addRecipient(Message.RecipientType.TO, new InternetAddress("daveikaye@yahoo.com"));
+//				msg.setSubject("Contact message from "+req.getParameter("fullName"));
+//				msg.setText(msgBody.toString());
+//				Transport.send(msg);
+//			} catch (MessagingException e) {
+//				e.printStackTrace();
+//			}
 	
 			resp.sendRedirect("/thankyou");
 		}

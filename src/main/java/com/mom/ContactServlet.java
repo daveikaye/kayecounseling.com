@@ -37,7 +37,7 @@ public class ContactServlet extends HttpServlet {
 		    
 		    Mail mail = new Mail(from, subject, to, content);
 
-		    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+		    SendGrid sg = new SendGrid("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");
 		    Request request = new Request();
 		    try {
 		      request.method = Method.POST;

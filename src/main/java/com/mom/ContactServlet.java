@@ -50,31 +50,6 @@ public class ContactServlet extends HttpServlet {
 		    } catch (IOException ex) {
 		      throw ex;
 		    }
-			
-//			
-//			
-//			
-//			Properties props = new Properties();
-//	        Session session = Session.getDefaultInstance(props, null);
-//	        
-//	        Message msg = new MimeMessage(session);
-//	        StringBuilder msgBody = new StringBuilder();
-//	        msgBody.append("Full name: "+req.getParameter("fullName")+"\n");
-//	        
-//	        msgBody.append("Contact at: "+getContactInformation(req.getParameter("contactType"), 
-//	        		                                            req.getParameter("emailAddress"), 
-//	        		                                            req.getParameter("phoneNumber"))+"\n");
-//	        		
-//	        msgBody.append("Message:\n"+req.getParameter("questionsOrComments"));
-//	        try {
-//				msg.setFrom(new InternetAddress("davekaye@gmail.com"));
-//				msg.addRecipient(Message.RecipientType.TO, new InternetAddress("daveikaye@yahoo.com"));
-//				msg.setSubject("Contact message from "+req.getParameter("fullName"));
-//				msg.setText(msgBody.toString());
-//				Transport.send(msg);
-//			} catch (MessagingException e) {
-//				e.printStackTrace();
-//			}
 	
 			resp.sendRedirect("/thankyou");
 		}

@@ -14,7 +14,7 @@
   	<%@ include file="/WEB-INF/jsp/profile.jsp" %>
   	<div id="content_div" class="content_background_left">
   		<div class="content_background_right">
-  				My name is Ellen Kaye, and I am a Clinical Independent Social Worker in the Fort Myers, Florida area working with adults and elders. As a cognitive behavioral therapist I respect and honor my clients who have chosen the path of self-improvement. Together with my clients we will examine their core believes that lead to depression, anxiety, and difficulties within relationships. In our sessions we will develop and implement specific, realistic, action-oriented short and long-term treatment goals to facilitate positive life long changes in thought, behavior, and interpersonal relationships.
+  				Twenty years of professional experience as a therapist working with adults and specializing in couple counseling, relationships, and bereavement issues.
 		</div>
   	</div>
   	<div id="shareSave_div">

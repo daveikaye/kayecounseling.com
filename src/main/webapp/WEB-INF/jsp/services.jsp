@@ -14,14 +14,10 @@
   	<div id="content_div" class="content_background_left">
   		<div class="content_background_right">
 	  		<ul>
-				<li>Depression</li>
-				<li>Anxiety</li>
-				<li>Relationship Issues</li>
-				<li>Marital Therapy</li>
-				<li>Life Coaching</li>
-				<li>Bereavement</li>
-				<li>Parenting</li>
-				<li>Eating Disorders</li>
+				<li>Individual counseling</li>
+				<li>Marital couple counseling</li>
+				<li>Bereavement therapy treatment</li>
+				<li>Support groups</li>
 			</ul>
 		</div>
   	</div>

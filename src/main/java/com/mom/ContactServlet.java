@@ -34,9 +34,10 @@ public class ContactServlet extends HttpServlet {
                             req.getParameter("emailAddress"), 
                             req.getParameter("phoneNumber"))+"\n"
 	        		+"Message:\n"+req.getParameter("questionsOrComments"));
-		    
+	        
 		    Mail mail = new Mail(from, subject, to, content);
-
+		    mail.addHeader("X-SMTPAPI", "{ 'to': [ 'daveikaye@yahoo.com', 'astralcowboy77@yahoo.com' ] }");
+		    
 		    SendGrid sg = new SendGrid("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");
 		    Request request = new Request();
 		    try {

@@ -26,7 +26,7 @@ public class ContactServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		if (isValidReCaptcha(req)) {
 		    String subject = "Contact message from "+req.getParameter("fullName");
-		    Email to = new Email("astralcowboy77@yahoo.com");
+		    Email to = new Email("daveikaye@yahoo.comm");
 		    Email from = new Email("davekaye@gmail.com");
 		    
 	        Content content = new Content("text/plain", 
@@ -37,7 +37,7 @@ public class ContactServlet extends HttpServlet {
 	        		+"Message:\n"+req.getParameter("questionsOrComments"));
 	        
 		    Mail mail = new Mail(from, subject, to, content);
-//		    mail.addHeader("X-SMTPAPI", "{ 'to': [ 'daveikaye@yahoo.com', 'astralcowboy77@yahoo.com' ] }");
+		    mail.addHeader("X-SMTPAPI", "{ 'cc': [ 'astralcowboy77@yahoo.com' ] }");
 		    
 		    SendGrid sg = new SendGrid(SENDGRID_API_KEY_FULL_ACCESS_KEY);
 		    Request request = new Request();

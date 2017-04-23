@@ -26,7 +26,7 @@ public class ContactServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		if (isValidReCaptcha(req)) {
 		    String subject = "Contact message from "+req.getParameter("fullName");
-		    Email to = new Email("daveikaye@yahoo.comm");
+		    Email to = new Email("daveikaye@yahoo.com");
 		    Email from = new Email("davekaye@gmail.com");
 		    
 	        Content content = new Content("text/plain", 

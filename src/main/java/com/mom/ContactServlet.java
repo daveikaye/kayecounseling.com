@@ -40,7 +40,6 @@ public class ContactServlet extends HttpServlet {
 //		    mail.addHeader("X-SMTPAPI", "{ 'to': [ 'daveikaye@yahoo.com', 'astralcowboy77@yahoo.com' ] }");
 		    
 		    SendGrid sg = new SendGrid(SENDGRID_API_KEY_FULL_ACCESS_KEY);
-		    System.out.println("***Sendrid API Key: "+SENDGRID_API_KEY_FULL_ACCESS_KEY+"***");
 		    Request request = new Request();
 		    try {
 		      request.method = Method.POST;

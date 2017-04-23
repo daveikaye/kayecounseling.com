@@ -42,7 +42,7 @@ public class ContactServlet extends HttpServlet {
 		    Mail mail = new Mail();
 		    Personalization personalization = new Personalization();
 		    personalization.addTo(to);
-		    personalization.addTo(cc);
+		    personalization.addCc(cc);
 		    mail.addPersonalization(personalization);
 		    mail.setFrom(from);
 		    mail.setSubject(subject);

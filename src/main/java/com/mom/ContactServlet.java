@@ -20,6 +20,7 @@ import net.tanesha.recaptcha.ReCaptchaResponse;
 @SuppressWarnings("serial")
 public class ContactServlet extends HttpServlet {
 
+	private static final String SENDGRID_API_KEY_FULL_ACCESS_KEY = System.getenv("SENDGRID_API_KEY_FULL_ACCESS");
 	private static final String RECAPTCHA_PRIVATE_KEY = "6LeB8QkAAAAAAIPlcacri7f-SwWueaF9F9uGvc0m";
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -38,7 +39,8 @@ public class ContactServlet extends HttpServlet {
 		    Mail mail = new Mail(from, subject, to, content);
 //		    mail.addHeader("X-SMTPAPI", "{ 'to': [ 'daveikaye@yahoo.com', 'astralcowboy77@yahoo.com' ] }");
 		    
-		    SendGrid sg = new SendGrid("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");
+		    SendGrid sg = new SendGrid(SENDGRID_API_KEY_FULL_ACCESS_KEY);
+		    System.out.println("***Sendrid API Key: "+SENDGRID_API_KEY_FULL_ACCESS_KEY+"***");
 		    Request request = new Request();
 		    try {
 		      request.method = Method.POST;

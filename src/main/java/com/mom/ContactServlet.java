@@ -9,6 +9,7 @@ import com.sendgrid.Content;
 import com.sendgrid.Email;
 import com.sendgrid.Mail;
 import com.sendgrid.Method;
+import com.sendgrid.Personalization;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
@@ -27,6 +28,7 @@ public class ContactServlet extends HttpServlet {
 		if (isValidReCaptcha(req)) {
 		    String subject = "Contact message from "+req.getParameter("fullName");
 		    Email to = new Email("daveikaye@yahoo.com");
+		    Email cc = new Email("astralcowboy77@yahoo.com");
 		    Email from = new Email("davekaye@gmail.com");
 		    
 	        Content content = new Content("text/plain", 
@@ -36,8 +38,17 @@ public class ContactServlet extends HttpServlet {
                             req.getParameter("phoneNumber"))+"\n"
 	        		+"Message:\n"+req.getParameter("questionsOrComments"));
 	        
-		    Mail mail = new Mail(from, subject, to, content);
-		    mail.addHeader("X-SMTPAPI", "{ 'cc': [ 'astralcowboy77@yahoo.com' ] }");
+//		    Mail mail = new Mail(from, subject, to, content);
+		    Mail mail = new Mail();
+		    Personalization personalization = new Personalization();
+		    personalization.addTo(to);
+		    personalization.addTo(cc);
+		    mail.addPersonalization(personalization);
+		    mail.setFrom(from);
+		    mail.setSubject(subject);
+		    mail.addContent(content);
+		    
+//		    mail.addHeader("X-SMTPAPI", "{ 'cc': [ 'astralcowboy77@yahoo.com' ] }");
 		    
 		    SendGrid sg = new SendGrid(SENDGRID_API_KEY_FULL_ACCESS_KEY);
 		    Request request = new Request();

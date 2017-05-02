@@ -3,9 +3,7 @@
 <html>
   <head>
   	<meta name="google-site-verification" content="fYjIQYXcGnaKQ8VIIGus_d9Z--SDjt9kKuVDUqB8TPs" />
-	<script type="text/javascript" src="../../javascript/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.livequery.js"></script>    
-  	
+	<%@ include file="/jqueryImport.jspf" %>
   	<title>Ellen Kaye, LCSW</title>
   </head>
 

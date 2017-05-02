@@ -9,7 +9,7 @@ function handleContact() {
 }
 
 function handleContactTypeSelection() {
-	$("#contactType").live("change", function () { 
+	$("#contactType").on("change", function () { 
       var selectedContactType = $(this).val();
       if (selectedContactType == 'phone') {
       	$("#emailSpanContact").hide("fast");
@@ -24,13 +24,13 @@ function handleContactTypeSelection() {
 }
 
 function handleCancelContact() {
-	$("#cancelContact").live("click", function () { 
+	$("#cancelContact").on("click", function () { 
       loadContent("home.html");
     });
 }
 
 function handleSubmitContact() {
-	$("#submitContact").live("click", function () {
+	$("#submitContact").on("click", function () {
       clearContactErrors();
       
       var fullName    = $.trim($("input#fullName").val());

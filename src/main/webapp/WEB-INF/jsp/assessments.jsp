@@ -2,7 +2,7 @@
 
 <html>
   <head>
-	<script type="text/javascript" src="../../javascript/jquery-1.3.2.min.js"></script>
+	<%@ include file="/jqueryImport.jspf" %>
 	<script type="text/javascript" src="../../javascript/dataTables-1.5/media/js/jquery.dataTables.min.js"></script>
 	<style type="text/css" title="currentStyle">
 			@import "/javascript/dataTables-1.5/media/css/demo_page.css";

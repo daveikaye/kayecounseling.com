@@ -4,8 +4,7 @@
 
 <html>
   <head>
-	<script type="text/javascript" src="../../javascript/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.livequery.js"></script>    
+	<%@ include file="/jqueryImport.jspf" %>    
   	<script type="text/javascript" src="../../javascript/contact.js"></script> 
 	<script>
 		var RecaptchaOptions = {
